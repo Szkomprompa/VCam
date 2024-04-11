@@ -41,13 +41,13 @@ def display():
     cubes = []
     # Inicjalizacja obiektu Wireframe
     cube = Wireframe()
-    cube.read_cube_from_file("cube.txt")
+    cube.read_cube_from_file("data/cube.txt")
     cube2 = Wireframe()
-    cube2.read_cube_from_file("cube2.txt")
+    cube2.read_cube_from_file("data/cube2.txt")
     cube3 = Wireframe()
-    cube3.read_cube_from_file("cube3.txt")
+    cube3.read_cube_from_file("data/cube3.txt")
     cube4 = Wireframe()
-    cube4.read_cube_from_file("cube4.txt")
+    cube4.read_cube_from_file("data/cube4.txt")
     cubes = [cube, cube2, cube3, cube4]
 
     # Parametry kamery
