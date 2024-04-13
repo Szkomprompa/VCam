@@ -1,27 +1,19 @@
 import numpy as np
 
 
-def rotation_matrix(rotation):
-    rotation_z, rotation_y, rotation_x = rotation
-    return np.array([
-        [np.cos(rotation_z) * np.cos(rotation_y),
-         np.cos(rotation_z) * np.sin(rotation_y) * np.sin(rotation_x) - np.sin(rotation_z) * np.cos(rotation_x),
-         np.cos(rotation_z) * np.sin(rotation_y) * np.cos(rotation_x) + np.sin(rotation_z) * np.sin(rotation_x)],
-        [np.sin(rotation_z) * np.cos(rotation_y),
-         np.sin(rotation_z) * np.sin(rotation_y) * np.sin(rotation_x) + np.cos(rotation_z) * np.cos(rotation_x),
-         np.sin(rotation_z) * np.sin(rotation_y) * np.cos(rotation_x) - np.cos(rotation_z) * np.sin(rotation_x)],
-        [-np.sin(rotation_y), np.cos(rotation_y) * np.sin(rotation_x), np.cos(rotation_y) * np.cos(rotation_x)]])
-
-
 class Wireframe:
     def __init__(self):
         self.nodes = np.zeros((0, 4))
         self.edges = []
+        self.color = (0, 0, 0)
 
     def add_nodes(self, node_array):
         ones_column = np.ones((len(node_array), 1))
         ones_added = np.hstack((node_array, ones_column))
         self.nodes = np.vstack((self.nodes, ones_added))
+
+    def set_color(self, color):
+        self.color = color
 
     def add_edges(self, edge_list):
         self.edges += edge_list
